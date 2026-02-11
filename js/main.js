@@ -1,5 +1,18 @@
-// SIDEBAR MOBILE
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize ScrollReveal
+    const sr = ScrollReveal({
+        origin: 'bottom',
+        distance: '50px',
+        duration: 1000,
+        delay: 80,
+        reset: true 
+    });
+
+    // Reveal elements
+    sr.reveal('.reveal', {
+        interval: 100 // Delay between each element
+    });
+
     // Get elements safely
     const menuButton = document.getElementById('menuButton');
     const closeSidebar = document.getElementById('closeSidebar');

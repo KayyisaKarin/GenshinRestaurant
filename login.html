@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- INI LOGIN PAGE -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="src/output.css">
+    <!-- CDN -->
+
+    <!-- REMIXICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+        integrity="sha512-XcIsjKMcuVe0Ucj/xgIXQnytNwBttJbNjltBV18IOnru2lDPe9KRRyvCXw6Y5H415vbBLRm8+q6fmLUU7DfO6Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/Website Logo.png" type="image/x-icon">
+    <title>Genshin Impact Restaurant</title>
+</head>
+
+<body class="font-genshin">
+    <!-- LOGIN/REGISTER TABS -->
+    <section class="mb-6">
+        <!-- Tabs Navigation -->
+        <div class="flex justify-center mt-8 mb-6">
+            <div class="flex bg-gray-100 rounded-full p-1 shadow-inner">
+                <button id="loginTab"
+                    class="px-6 py-2 rounded-full bg-yllow text-brwn font-medium transition-all duration-300 hover:scale-105">Login</button>
+                <button id="registerTab" 
+                    class="px-6 py-2 rounded-full text-gray-600 font-medium transition-all duration-300 hover:scale-105 hover:text-brwn">Register</button>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginSection"
+            class="px-7 py-7 grid grid-cols-1 md:grid-cols-2 mx-10 shadow-lg shadow-gray-400/30 border rounded-2xl lg:px-20 md:px-15 md:py-15 gap-x-15 opacity-100 transform-none transition-all duration-300 ease-in-out">
+            <!-- IMAGE ONLY VISIBLE IN DESKTOP -->
+            <div class="hidden md:flex items-center justify-center overflow-hidden rounded-xl  shadow-xl/30">
+                <img src="assets/gouba.png" alt="Gouba Mascot in Login Page"
+                    class="w-full h-full object-cover object-center max-h-110 ">
+            </div>
+
+            <div class="flex flex-col justify-center">
+                <h1 class="text-center text-2xl mb-5 font-semibold">Welcome Back!</h1>
+                <p class="text-center text-sm px-10">Please login to your account before continuing with your purchase.
+                </p>
+
+
+                <form action="" class="grid grid-cols-1 gap-y-3 py-9">
+                    <input type="text" placeholder="Username"
+                        class="border border-gray-500 px-4 py-2 rounded-xl placeholder:text-sm">
+                    <input type="password" placeholder="Your Password"
+                        class="border border-gray-500 px-4 py-2 rounded-xl placeholder:text-sm">
+                    <p class="text-gray-600 text-xs hover:text-gray-800 text-end cursor-pointer hover:underline">Forgot Password?</p>
+                </form>
+
+                <button type="button" id="loginBtn"
+                    class="bg-yllow px-4 py-2 rounded-xl hover:bg-brwn hover:text-white transition-all duration-100 cursor-pointer">Login</button>
+                <p class="text-gray-600 text-xs text-center mt-5">Don't have an account? <button id="switchToRegister"
+                        class="hover:underline hover:text-gray-800 cursor-pointer">Register here</button></p>
+            </div>
+        </div>
+
+        <!-- Register Form (Hidden by default) -->
+        <div id="registerSection"
+            class="px-7 py-7 grid grid-cols-1 md:grid-cols-2 mx-10 shadow-lg shadow-gray-400/30 border rounded-2xl lg:px-20  md:px-15 md:py-15 gap-x-15 opacity-0 pointer-events-none absolute invisible -translate-x-5 transition-all duration-300 ease-in-out">
+            <!-- IMAGE ONLY VISIBLE IN DESKTOP -->
+            <div class="hidden md:flex items-center justify-center overflow-hidden rounded-xl  shadow-xl/30">
+                <img src="assets/cooking.png" alt="Documentary of our cooking in Register Page"
+                    class="w-full h-full object-cover object-center max-h-110">
+            </div>
+
+            <div class="flex flex-col justify-center">
+                <h1 class="text-center text-2xl mb-5 font-semibold">Make an account!</h1>
+                <p class="text-center text-sm px-10">Join our membership in Genshin Restaurant by making an account.</p>
+
+
+                <form action="" class="grid grid-cols-1 gap-y-3 py-9">
+                    <input type="email" placeholder="Email"
+                        class="border border-gray-500 px-4 py-2 rounded-xl placeholder:text-sm">
+                    <input type="text" placeholder="Username"
+                        class="border border-gray-500 px-4 py-2 rounded-xl placeholder:text-sm">
+                    <input type="password" placeholder="Your Password"
+                        class="border border-gray-500 px-4 py-2 rounded-xl placeholder:text-sm">
+                    <div class="flex flex-row gap-x-3 items-center mt-2">
+                        <input type="checkbox" class="accent-brwn cursor-pointer">
+                        <p class="text-xs">I want to get updates from Genshin Restaurant</p>
+                    </div>
+                </form>
+
+                <button id="registerBtn" type="button"
+                    class="bg-yllow px-4 py-2 rounded-xl hover:bg-brwn hover:text-white transition-all duration-100 cursor-pointer">Register</button>
+                <p class="text-gray-600 text-xs text-center mt-5">Already have an account? <button id="switchToLogin"
+                        class="hover:underline hover:text-gray-800 cursor-pointer">Login here</button></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>

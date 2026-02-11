@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="src/output.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/Website Logo.png" type="image/x-icon">
+    <title>Genshin Impact Restaurant</title>
+</head>
+
+<body class="font-genshin">
+    <!-- SIDEBAR FOR MOBILE (hidden on desktop) -->
+    <aside id="sidebarOverlay" class="fixed inset-0 bg-black/50 z-70 hidden "></aside>
+
+    <aside id="sidebar"
+        class="fixed left-0 top-0 h-full w-64 bg-brwn text-white z-80 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
+        <div class="flex flex-col p-6">
+            <button id="closeSidebar"
+                class="self-end text-white hover:text-yllow mb-8 transition-transform duration-600 hover:rotate-180">
+                <i class="ri-close-line text-2xl "></i>
+            </button>
+
+            <a href="#"
+                class="flex items-center py-3 px-4 hover:bg-yllow hover:text-brwn rounded-lg transition-all duration-300 mb-2">
+                <i class="ri-home-3-fill mr-3"></i>
+                Home
+            </a>
+            <a href="#"
+                class="flex items-center py-3 px-4 hover:bg-yllow hover:text-brwn rounded-lg transition-all duration-300 mb-2">
+                <i class="ri-restaurant-fill mr-3"></i>
+                Products
+            </a>
+            <a href="#"
+                class="flex items-center py-3 px-4 hover:bg-yllow hover:text-brwn rounded-lg transition-all duration-300 mb-2">
+                <i class="ri-map-pin-fill mr-3"></i>
+                Location
+            </a>
+            <a href="#"
+                class="flex items-center py-3 px-4 hover:bg-yllow hover:text-brwn rounded-lg transition-all duration-300 mb-2">
+                <i class="ri-information-fill mr-3"></i>
+                About
+            </a>
+            <a href="#"
+                class="flex items-center py-3 px-4 hover:bg-yllow hover:text-brwn rounded-lg transition-all duration-300">
+                <i class="ri-contacts-fill mr-3"></i>
+                Contact
+            </a>
+        </div>
+    </aside>
+
+    <!-- CART -->
+     <section id="shopping" class="fixed hidden top-0 right-0 left-0 py-4 px-4 bg-white z-100 md:w-210 w-full lg:py-2 ">
+        
+        <div class="flex justify-end">
+            <i class="ri-close-large-line inline-block transition-transform duration-600 hover:rotate-180"></i>
+        </div>
+        <span class="uppercase text-xs md:text-sm font-medium mr-3">your cart items</span>
+        <span class="uppercase text-xs md:text-sm text-gray-500">2 items</span>
+
+        <!-- product wrap -->
+        <div class="mt-5 grid grid-cols-1 gap-y-5 w-full">
+            <!-- Product 1 -->
+            <div class="flex">
+                <!-- Img -->
+                <div class="w-[17%] lg:w-[14%]">
+                    <img src="assets/RockinRiffinChicken.png" alt="RockinRiffinChicken">
+                </div>
+
+                <!-- DESC -->
+                <div class=" pl-2 w-full py-2 flex flex-col">
+                    <div class="flex justify-between">
+                        <p class="text-xs uppercase md:mt-4 md:text-sm ">Rockin Riffin Chicken</p>
+
+                        <p class="text-xs flex items-center md:text-sm md:mt-4"><img src="assets/Mora.png" alt="Mora" class="h-6 w-6 object-contain"> 583</p>
+                    </div>
+                    <p class="text-xs uppercase font-semibold -mt-1 mb-1 md:text-sm md:mt-4">Liyue Dish</p>
+
+                    <div class="flex justify-between mt-auto lg:mt-8">
+                        <!-- add -->
+                        <div class="bg-gray-100 flex justify-between gap-x-2 w-fit items-center ">
+                            <button class="px-2 hover:bg-primary transition-all duration-300">
+                                <i class="ri-subtract-line"></i>
+                            </button>
+
+                            <span class="text-sm font-medium">1</span>
+
+                            <button class="px-2 hover:bg-primary transition-all duration-300">
+                                <i class="ri-add-line"></i>
+                            </button>
+
+                        </div>
+
+                        <!-- remove -->
+                        <a href="#" class="text-xs uppercase hover:underline">Remove</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="flex">
+                <!-- Img -->
+                <div class="w-[17%] lg:w-[14%]">
+                    <img src="assets/SurianHunterReward.png" alt="SaurianHunterReward">
+                </div>
+
+                <!-- DESC -->
+                <div class=" pl-2 w-full py-2 flex flex-col">
+                    <div class="flex justify-between">
+                        <p class="text-xs uppercase md:text-sm md:mt-4">Saurian Hunter Reward</p>
+
+                        <p class="text-xs flex items-center md:text-sm md:mt-4"><img src="assets/Mora.png" alt="Mora" class="h-6 w-6 object-contain"> 320</p>
+                    </div>
+                    <p class="text-xs uppercase font-semibold -mt-1 mb-1 md:text-sm md:mt-4">Natlan Dish</p>
+
+                    <div class="flex justify-between mt-auto lg:mt-8">
+                        <!-- add -->
+                        <div class="bg-gray-100 flex justify-between gap-x-2 w-fit items-center">
+                            <button class="px-2 hover:bg-primary transition-all duration-300">
+                                <i class="ri-subtract-line"></i>
+                            </button>
+
+                            <span class="text-sm font-medium">1</span>
+
+                            <button class="px-2 hover:bg-primary transition-all duration-300">
+                                <i class="ri-add-line"></i>
+                            </button>
+
+                        </div>
+
+                        <!-- remove -->
+                        <a href="#" class="text-xs uppercase hover:underline">Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- total -->
+        <div class="flex items-center justify-between mt-7 border-t pt-6 border-gray-500/60">
+            <p class="uppercase text-sm font-medium">Total</p>
+            <p class="uppercase text-sm font-medium flex items-center"><img src="assets/Mora.png" alt="Mora" class="h-8 w-8 object-contain">903</p>
+        </div>
+
+        <a href="checkout.html">
+            <button class="bg-ornge text-xs text-white w-full mt-3 py-2 uppercase hover:bg-rrd transition-all duration-300 cursor-pointer border-0 rounded-lg md:text-sm">Continue to Checkout</button>
+        </a>
+
+
+    </section>
+
+
+    <!-- Main Content -->
+    <main>
+        <!-- Header Section -->
+        <header class="sticky top-0 z-50">
+            <!-- Original Navbar -->
+            <nav class="pt-5 px-7" id="originalNavbar" aria-label="Primary navigation">
+                <div class="flex items-center justify-between py-3 gap-x-2 bg-brwn rounded-full">
+                    <!-- Mobile Menu Button -->
+                    <button id="menuButton"
+                        class="text-white uppercase hover:text-yllow transition-all text-sm duration-300 lg:hidden ml-5"
+                        aria-label="Open menu">
+                        <i class="ri-restaurant-2-fill mr-2"></i>Menu
+                    </button>
+
+                    <!-- Desktop Navigation Left -->
+                    <div class="hidden lg:flex lg:items-center lg:gap-x-6 lg:ml-7" aria-label="Desktop navigation left">
+                        <a href="#home"
+                            class="flex items-center text-white uppercase hover:text-yllow transition-all duration-300 text-sm">
+                            <i class="ri-home-3-fill mr-2"></i>Home
+                        </a>
+                        <a href="#products"
+                            class="flex items-center text-white uppercase hover:text-yllow transition-all duration-300 text-sm">
+                            <i class="ri-restaurant-fill mr-2"></i>Products
+                        </a>
+                        <a href="#location"
+                            class="flex items-center text-white uppercase hover:text-yllow transition-all duration-300 text-sm">
+                            <i class="ri-map-pin-fill mr-2"></i>Location
+                        </a>
+                    </div>
+
+                    <!-- Logo -->
+                    <a href="#home"
+                        class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 border-10 border-brwn rounded-full hover:scale-120 transition duration-300"
+                        aria-label="Genshin Restaurant Home">
+                        <img src="assets/Vector.png" class="h-14" alt="Genshin Restaurant Logo">
+                    </a>
+
+                    <!-- Desktop Navigation Right -->
+                    <div class="hidden lg:flex lg:items-center lg:gap-x-6 lg:mr-4"
+                        aria-label="Desktop navigation right">
+                        <a href="#about"
+                            class="flex items-center text-white uppercase hover:text-yllow transition-all duration-300 text-sm">
+                            <i class="ri-information-fill mr-2"></i>About
+                        </a>
+                        <a href="#contact"
+                            class="flex items-center text-white uppercase hover:text-yllow transition-all duration-300 text-sm">
+                            <i class="ri-contacts-fill mr-2"></i>Contact
+                        </a>
+                        <a href="#checkout" id="cart"
+                            class="uppercase text-white bg-yllow px-4 py-2 rounded-3xl hover:bg-ornge hover:scale-105 duration-300 transition-all text-sm">
+                            CHECKOUT
+                        </a>
+                    </div>
+
+                    <!-- Mobile Cart -->
+                    <a href="#checkout" id="cart"
+                        class="z-10 uppercase text-white bg-yllow px-4 py-2 rounded-3xl mr-4 hover:bg-ornge hover:scale-105 duration-300 transition-all text-sm lg:hidden">
+                        MY CART
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- PRODUCT SECTION -->
+        <section class="py-8 px-7 md:py-16 antialiased ">
+            <div class="max-w-7xl px-4 mx-auto 2xl:px-0">
+                <div>
+                    <a href="all-product.html"
+                        class="text-lg bg-yllow border-0 rounded-full px-3  py-2 hover:bg-ornge transition-all duration-300 hover:text-xl "><i
+                            class="ri-arrow-left-line mr-2"></i>Go back</a>
+                </div>
+                <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16 px-7">
+                    <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
+                        <img class="w-full" src="assets/SurianHunterReward.png" alt="Saurian Hunter Reward" />
+                    </div>
+
+                    <div class=" mt-8 lg:mt-0">
+                        <h1 class=" font-semibold text-gray-900 text-2xl">
+                            Saurian Hunter Reward
+                        </h1>
+                        <div class="mt-3">
+                            <ul class="flex flex-col md:flex-row md:gap-2 gap-y-2">
+                                <div class="flex gap-2 md:gap-2">
+                                    <li class="bg-[#ff663e] px-3 text-xs py-1.5 border-0 rounded-lg w-fit md:w-auto">
+                                        Natlan Dish</li>
+                                    <li
+                                        class="bg-rrd px-3 text-xs py-1.5 border-0 rounded-lg text-white w-fit md:w-auto">
+                                        Spicy</li>
+                                </div>
+                                <li class="bg-ornge px-3 text-xs py-1.5 border-0 rounded-lg w-fit md:w-auto truncate">
+                                    Recommended for groups</li>
+                            </ul>
+                        </div>
+                        <div class="mt-3 items-center gap-4 flex">
+                            <img src="assets/Mora.png" alt="Mora" class="h-13 w-13 object-contain">
+                            <p class=" font-extrabold text-gray-900 text-3xl">
+                                583
+                            </p>
+
+                            <div class="flex items-center gap-2 mt-0">
+                                <div class="flex items-center gap-1">
+                                    <i class="ri-star-fill text-yellow-400 text-lg"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-lg"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-lg"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-lg"></i>
+                                    <i class="ri-star-fill text-yellow-400 text-lg"></i>
+                                </div>
+                                <p class="text-sm font-medium leading-none text-gray-500">
+                                    (5.0)
+                                </p>
+                                <a href="#"
+                                    class="text-sm font-medium leading-none text-gray-900 underline hover:no-underline">
+                                    455 Reviews
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class=" gap-4 items-center flex mt-2">
+                            <a href="#"
+                                class="flex items-center justify-center py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 transition-all duration-300  hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100"
+                                role="button">
+                                <i class="ri-heart-line text-lg -ms-2 me-2"></i>
+                                Add to favorites
+                            </a>
+
+                            <a href="#"
+                                class="text-black mt-0 hover:bg-yllow transition-all duration-300 focus:ring-1 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 flex items-center justify-center"
+                                role="button">
+                                <i class="ri-shopping-cart-2-fill text-lg -ms-2 me-2"></i>
+                                Add to cart
+                            </a>
+                        </div>
+
+                        <hr class="my-6 md:my-8 border-gray-200" />
+
+                        <p class="mb-6 text-sm text-gray-500">
+
+                            Kinich's specialty. The large, richly flavored chunks of meat come in hot... and spicy to
+                            boot. Ajaw keeps mumbling by your side. "Consider yourself lucky to enjoy this for free!
+                            Why, in days past, we would only reward ourselves thus for a true big-game hunt. Indeed, you
+                            should be offering delicious fruit juice unto me as thanksgiving!" To which Kinich helpfully
+                            supplies, "Just eat. Ignore his nonsense."
+                        </p>
+
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OTHER NATLAN SPECIALS SECTION -->
+        <section class="py-8 px-7 bg-ornge antialiased">
+            <div class="max-w-7xl mx-auto px-4">
+                <header class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900">Other Natlan Specials</h2>
+                    <p class="text-brwn mt-2">Discover more fiery dishes from the Nation of Pyro</p>
+                </header>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Dish 1 -->
+                    <article
+                        class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <figure class="relative">
+                            <img src="assets/ImpeccablyOrganized.png" alt="Impeccably Organized"
+                                class="w-full h-48 object-cover hover:scale-110 hover:h-53 transition-all duration-300 ease-out delay-10">
+                            <figcaption class="sr-only">Impeccably Organized</figcaption>
+                        </figure>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-900 text-lg mb-2">Impeccably Organized</h3>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="assets/Mora.png" alt="Mora currency" class="h-6 w-6 mr-2">
+                                    <span class="font-bold text-gray-900">362</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-half-fill text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dish 2 -->
+                    <article
+                        class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <figure class="relative ">
+                            <img src="assets/MomentOfRespite.png" alt="Moment of Respite"
+                                class="w-full h-48 object-cover hover:scale-110 hover:h-53 transition-all duration-300 ease-out delay-10">
+                            <figcaption class="sr-only">Moment of Respite</figcaption>
+                        </figure>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-900 text-lg mb-2">Moment of Respite</h3>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="assets/Mora.png" alt="Mora currency" class="h-6 w-6 mr-2">
+                                    <span class="font-bold text-gray-900">650</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dish 3 -->
+                    <article
+                        class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <figure class="relative">
+                            <img src="assets/Xocoatl.png" alt="Xocoatl"
+                                class="w-full h-48 object-cover hover:scale-110 hover:h-53 transition-all duration-300 ease-out delay-10">
+                            <figcaption class="sr-only">Xocoatl</figcaption>
+                        </figure>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-900 text-lg mb-2">Xocoatl</h3>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="assets/Mora.png" alt="Mora currency" class="h-6 w-6 mr-2">
+                                    <span class="font-bold text-gray-900">189</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-line text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dish 4 -->
+                    <article
+                        class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <figure class="relative">
+                            <img src="assets/GoldStandardHealthyMeal.png" alt="Spicy Pepper Stew"
+                                class="w-full h-48 object-cover hover:scale-110 hover:h-53 transition-all duration-300 ease-out delay-10r ">
+                            <figcaption class="sr-only">GoldStandardHealthyMeal</figcaption>
+                        </figure>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-900 text-lg mb-2">Gold Standard Meal</h3>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="assets/Mora.png" alt="Mora currency" class="h-6 w-6 mr-2">
+                                    <span class="font-bold text-gray-900">669</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-half-fill text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <a href="#"
+                        class="inline-flex items-center text-brwn hover:text-rrd font-medium transition-colors duration-300">
+                        <span>View All Natlan Dishes</span>
+                        <i class="ri-arrow-right-line ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- OTHER SPICY SPECIALS SECTION -->
+        <section class="py-8 px-7 bg-white antialiased mb-20 mt-10">
+            <div class="max-w-7xl mx-auto px-4">
+                <header class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900">Other Spicy Dishes</h2>
+                    <p class="text-gray-600 mt-2">Burn your tongues with these dishes!</p>
+                </header>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Dish 1 -->
+                    <article
+                        class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <figure class="relative">
+                            <img src="assets/YummyYumCha.png" alt="Yummy Yum Cha"
+                                class="w-full h-48 object-cover hover:scale-110 hover:h-53 transition-all duration-300 ease-out delay-10">
+                            <figcaption class="sr-only">Yummy Yum Cha</figcaption>
+                        </figure>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-900 text-lg mb-2">Yummy Yum Cha</h3>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="assets/Mora.png" alt="Mora currency" class="h-6 w-6 mr-2">
+                                    <span class="font-bold text-gray-900">400</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-half-fill text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dish 2 -->
+                    <article
+                        class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <figure class="relative ">
+                            <img src="assets/WayOfTheStrong.png" alt="Way of the Strong"
+                                class="w-full h-48 object-cover hover:scale-110 hover:h-53 transition-all duration-300 ease-out delay-10">
+                            <figcaption class="sr-only">Way of the Strong</figcaption>
+                        </figure>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-900 text-lg mb-2">Way of the Strong</h3>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="assets/Mora.png" alt="Mora currency" class="h-6 w-6 mr-2">
+                                    <span class="font-bold text-gray-900">251</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dish 3 -->
+                    <article
+                        class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <figure class="relative">
+                            <img src="assets/RockinRiffinChicken.png" alt="Rockin Riffin Chicken"
+                                class="w-full h-48 object-cover hover:scale-110 hover:h-53 transition-all duration-300 ease-out delay-10">
+                            <figcaption class="sr-only">Rockin Riffin Chicken</figcaption>
+                        </figure>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-900 text-lg mb-2">Rockin Riffin Chicken</h3>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="assets/Mora.png" alt="Mora currency" class="h-6 w-6 mr-2">
+                                    <span class="font-bold text-gray-900">320</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Dish 4 -->
+                    <article
+                        class="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                        <figure class="relative">
+                            <img src="assets/WanminBoiledFish.png" alt="WanminBoiledFish"
+                                class="w-full h-48 object-cover hover:scale-110 hover:h-53 transition-all duration-300 ease-out delay-10r ">
+                            <figcaption class="sr-only">WanminBoiledFish</figcaption>
+                        </figure>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-gray-900 text-lg mb-2">Wanmin Boiled Fish</h3>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <img src="assets/Mora.png" alt="Mora currency" class="h-6 w-6 mr-2">
+                                    <span class="font-bold text-gray-900">510</span>
+                                </div>
+                                <div class="flex text-yellow-400">
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                    <i class="ri-star-fill text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <a href="#"
+                        class="inline-flex items-center text-brwn hover:text-ornge font-medium transition-colors duration-300">
+                        <span>View All Spicy Dishes</span>
+                        <i class="ri-arrow-right-line ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-brwn text-white pt-12 pb-8">
+
+        <!-- TOP SECTION -->
+        <div class="container mx-auto px-7 mt-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+
+                <!-- COLUMN 1: RESTAURANT INFO -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="assets/Website Logo.png" class="h-10" alt="Logo">
+                        <h3 class="text-xl">Genshin Impact Restaurant</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        7 Different nations. One restaurant.<br>
+                        Serving Teyvat's finest cuisine since 2020.
+                    </p>
+                </div>
+
+                <!-- COLUMN 2: NATIONS BRANCHES -->
+                <div>
+                    <h4 class="text-xl mb-6 pb-2 border-b border-white/20">Our Branches</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-2 hover:text-yllow cursor-pointer">
+                            <i class="ri-map-pin-fill text-red-400"></i>
+                            <span>Mondstadt - Good Hunter</span>
+                        </li>
+                        <li class="flex items-center gap-2 hover:text-yllow cursor-pointer">
+                            <i class="ri-map-pin-fill text-amber-400"></i>
+                            <span>Liyue - Liyue Harbor</span>
+                        </li>
+                        <li class="flex items-center gap-2 hover:text-yllow cursor-pointer">
+                            <i class="ri-map-pin-fill text-purple-400"></i>
+                            <span>Inazuma - Ritou District</span>
+                        </li>
+                        <li class="flex items-center gap-2 hover:text-yllow cursor-pointer">
+                            <i class="ri-map-pin-fill text-green-400"></i>
+                            <span>Sumeru - Puspa Café Area</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: OPENING HOURS -->
+                <div>
+                    <h4 class="text-xl mb-6 pb-2 border-b border-white/20">Opening Hours</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between">
+                            <span>Mon - Thu</span>
+                            <span class="text-yllow">11AM - 10PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Fri - Sat</span>
+                            <span class="text-yllow">11AM - 12AM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sunday</span>
+                            <span class="text-yllow">12PM - 9PM</span>
+                        </li>
+                        <li class="mt-6 p-3 bg-white/10 rounded-lg">
+                            <p class="text-sm">Lantern Rite Festival: Open 24/7!</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BOTTOM SECTION -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <!-- LEFT: NAV LINKS -->
+                <nav class="flex flex-wrap gap-6 text-sm" aria-label="Footer navigation">
+                    <a href="all-product.html" class="hover:text-yllow transition-colors">Menu</a>
+                    <a href="#checkout" class="hover:text-yllow transition-colors">Order Online</a>
+                    <a href="#cart" class="hover:text-yllow transition-colors">Cart</a>
+                    <a href="#contact" class="hover:text-yllow transition-colors">Contact</a>
+                </nav>
+
+                <!-- RIGHT: PAYMENT METHODS -->
+                <div class="flex items-center gap-4">
+                    <span class="text-gray-400">Payment Methods:</span>
+                    <div class="flex gap-2">
+                        <div
+                            class="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-white/20 transition-all">
+                            <i class="ri-bank-card-fill"></i>
+                        </div>
+                        <div
+                            class="w-8 h-8 bg-white/10 rounded flex items-center justify-center hover:bg-white/20 transition-all">
+                            <i class="ri-coin-fill text-yellow-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COPYRIGHT -->
+            <div class="mt-8 pt-6 border-t border-white/10 text-center text-gray-400 text-sm">
+                <p>© 2026 Genshin Impact Restaurant. Not affiliated with HoYoverse.</p>
+                <p class="mt-2">Genshin Impact™ is a registered trademark of miHoYo. All food images are for
+                    illustrative purposes only.</p>
+                <nav class="flex justify-center gap-4 mt-4 text-xs">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                    <a href="#" class="hover:text-white">Cookie Policy</a>
+                </nav>
+            </div>
+
+            <!-- FUN ELEMENT -->
+            <div class="text-center mt-8">
+                <p class="text-yllow/50 text-xs">
+                    <i class="ri-map-pin-fill"></i> Find us using Teleport Waypoints! • Daily Commissions Rewards
+                    Available • Co-op Mode: Group Orders Get 10% Off
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+</body>
+
+</html>

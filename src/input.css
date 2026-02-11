@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'genshin';
+    src: url('../fonts/zh-cn.ttf') format('truetype');
+}
+
+@theme {
+    --font-genshin: 'genshin';
+    --color-primary: #696159;
+    --color-yllow: #F9AE2F;
+    --color-ornge: #f2901f;
+    --color-rrd: #A6423C ;
+    --color-brwn: #351D13;
+    --hero-bg: url('/assets/wallpaperhero.png');
+}
+  
+  
+
+@layer components {
+    /* Parallax Layers */
+    .parallax-layer {
+        @apply absolute inset-0 -z-10 rounded-full transition-transform duration-300 ease-out;
+        transform: 
+            translateX(calc(var(--mouse-x, 0) * var(--speed-x, 0.5) * 4px))
+            translateY(calc(var(--mouse-y, 0) * var(--speed-y, 1) * 4px));
+    }
+    
+    .layer-1 {
+        @apply w-70 h-70 bg-yllow z-10;
+        --speed-x: 0.5;
+        --speed-y: 0.5;
+        top: 50%;
+        left: 50%;
+        transform: 
+            translate(-50%, -50%)
+            translateX(calc(var(--mouse-x, 0) * var(--speed-x, 0.5) * 4px))
+            translateY(calc(var(--mouse-y, 0) * var(--speed-y, 1) * 4px));
+    }
+    
+
+    
+    
+    /* Logo Container */
+    .logo-container {
+        @apply relative z-10 transition-transform duration-200 ease-out;
+        transform: 
+            translateX(calc(var(--mouse-x, 0) * 0.1px))
+            translateY(calc(var(--mouse-y, 0) * 0.1px));
+    }
+    
+    .logo-image {
+        @apply h-60 ;
+    }
+
+    .img-product {
+        @apply transition-transform duration-500 hover:scale-110;
+    }
+}
+

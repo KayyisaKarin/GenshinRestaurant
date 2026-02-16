@@ -13,6 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
         interval: 100 // Delay between each element
     });
 
+      // Fallback jika ScrollReveal belum terload
+        if (typeof ScrollReveal === 'undefined') {
+            // Buat dummy function agar tidak error
+            window.ScrollReveal = function() {
+                return {
+                    reveal: function() {}
+                };
+            };
+        }
+
     // Get elements safely
     const menuButton = document.getElementById('menuButton');
     const closeSidebar = document.getElementById('closeSidebar');
@@ -127,70 +137,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // POPUP
+    // POPUP - Tambahkan pengecekan untuk semua element
+    const submitButton = document.getElementById('submit-button');
+    if (submitButton) {
+        submitButton.addEventListener('click', function (e) {
+            e.preventDefault();
 
-    document.getElementById('submit-button').addEventListener('click', function (e) {
-        e.preventDefault();
+            // Ambil semua input yang required
+            const inputs = document.querySelectorAll('input[required]');
+            let allFilled = true;
 
-        // Ambil semua input yang required
-        const inputs = document.querySelectorAll('input[required]');
-        let allFilled = true;
+            // Cek apakah semua field sudah terisi
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                    // Tambahkan efek visual untuk field yang kosong
+                    input.classList.add('border-red-500', 'bg-red-50');
 
-        // Cek apakah semua field sudah terisi
-        inputs.forEach(input => {
-            if (!input.value.trim()) {
-                allFilled = false;
-                // Tambahkan efek visual untuk field yang kosong
-                input.classList.add('border-red-500', 'bg-red-50');
+                    // Hapus efek setelah beberapa saat
+                    setTimeout(() => {
+                        input.classList.remove('border-red-500', 'bg-red-50');
+                    }, 2000);
+                }
+            });
 
-                // Hapus efek setelah beberapa saat
+            // Jika semua field terisi, tampilkan popup
+            if (allFilled) {
+                const button = this;
+                const buttonText = button.querySelector('.button-text');
+                const icon = button.querySelector('i');
+
+                // Ubah tampilan tombol
+                button.disabled = true;
+                button.classList.add('opacity-50', 'cursor-not-allowed');
+                buttonText.textContent = 'Processing...';
+                icon.classList.remove('ri-bank-card-line');
+                icon.classList.add('ri-loader-4-line', 'animate-spin');
+
+                // Tampilkan popup setelah delay
                 setTimeout(() => {
-                    input.classList.remove('border-red-500', 'bg-red-50');
-                }, 2000);
+                    showPopup();
+
+                    // Reset tombol
+                    setTimeout(() => {
+                        button.classList.remove('opacity-50', 'cursor-not-allowed');
+                        button.disabled = false;
+                        buttonText.textContent = 'Pay now';
+                        icon.classList.remove('ri-loader-4-line', 'animate-spin');
+                        icon.classList.add('ri-bank-card-line');
+                    }, 500);
+
+                }, 1000);
             }
         });
-
-        // Jika semua field terisi, tampilkan popup
-        if (allFilled) {
-            const button = this;
-            const buttonText = button.querySelector('.button-text');
-            const icon = button.querySelector('i');
-
-            // Ubah tampilan tombol
-            button.disabled = true;
-            button.classList.add('opacity-50', 'cursor-not-allowed');
-            buttonText.textContent = 'Processing...';
-            icon.classList.remove('ri-bank-card-line');
-            icon.classList.add('ri-loader-4-line', 'animate-spin');
-
-            // Tampilkan popup setelah delay
-            setTimeout(() => {
-                showPopup();
-
-                // Reset tombol
-                setTimeout(() => {
-                    button.classList.remove('opacity-50', 'cursor-not-allowed');
-                    button.disabled = false;
-                    buttonText.textContent = 'Pay now';
-                    icon.classList.remove('ri-loader-4-line', 'animate-spin');
-                    icon.classList.add('ri-bank-card-line');
-                }, 500);
-
-            }, 1000);
-        }
-    });
+    }
 
     // Fungsi untuk menampilkan popup
     function showPopup() {
         const popupOverlay = document.getElementById('popup-overlay');
         const popupContent = document.getElementById('popup-content');
 
-        popupOverlay.classList.remove('hidden');
+        if (popupOverlay && popupContent) {
+            popupOverlay.classList.remove('hidden');
 
-        setTimeout(() => {
-            popupContent.classList.remove('scale-95', 'opacity-0');
-            popupContent.classList.add('scale-100', 'opacity-100');
-        }, 50);
+            setTimeout(() => {
+                popupContent.classList.remove('scale-95', 'opacity-0');
+                popupContent.classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
     }
 
     // Fungsi untuk menutup popup
@@ -198,22 +212,29 @@ document.addEventListener('DOMContentLoaded', () => {
         const popupOverlay = document.getElementById('popup-overlay');
         const popupContent = document.getElementById('popup-content');
 
-        popupContent.classList.remove('scale-100', 'opacity-100');
-        popupContent.classList.add('scale-95', 'opacity-0');
+        if (popupContent && popupOverlay) {
+            popupContent.classList.remove('scale-100', 'opacity-100');
+            popupContent.classList.add('scale-95', 'opacity-0');
 
-        setTimeout(() => {
-            popupOverlay.classList.add('hidden');
-        }, 300);
+            setTimeout(() => {
+                popupOverlay.classList.add('hidden');
+            }, 300);
+        }
     }
 
-    // Event listener untuk close button
-    document.getElementById('close-popup').addEventListener('click', closePopup);
+    // Event listener untuk close button - dengan pengecekan
+    const closePopupBtn = document.getElementById('close-popup');
+    if (closePopupBtn) {
+        closePopupBtn.addEventListener('click', closePopup);
+    }
 
-    // Close popup saat klik di luar konten
-    document.getElementById('popup-overlay').addEventListener('click', function (e) {
-        if (e.target === this) {
-            closePopup();
-        }
-    });
+    // Close popup saat klik di luar konten - dengan pengecekan
+    const popupOverlay = document.getElementById('popup-overlay');
+    if (popupOverlay) {
+        popupOverlay.addEventListener('click', function (e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+    }
 });
-

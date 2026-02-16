@@ -24,15 +24,15 @@
     <aside id="sidebar"
         class="fixed left-0 top-0 h-full w-64 bg-brwn text-white z-80 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
         <div class="flex flex-col p-6">
-            <button id="closeSidebar"
+            <button id="closeSidebar" aria-label="closeSidebar"
                 class="self-end text-white hover:text-yllow mb-8 transition-transform duration-600 hover:rotate-180">
                 <i class="ri-close-line text-2xl "></i>
             </button>
 
-            <a href="#"
+            <a href="index.html"
                 class="flex items-center py-3 px-4 hover:bg-yllow hover:text-brwn rounded-lg transition-all duration-300 mb-2">
                 <i class="ri-home-3-fill mr-3"></i>
-                Home
+                Logout
             </a>
             <a href="#"
                 class="flex items-center py-3 px-4 hover:bg-yllow hover:text-brwn rounded-lg transition-all duration-300 mb-2">
@@ -88,13 +88,13 @@
                     <div class="flex justify-between mt-auto lg:mt-8">
                         <!-- add -->
                         <div class="bg-gray-100 flex justify-between gap-x-2 w-fit items-center ">
-                            <button class="px-2 hover:bg-primary transition-all duration-300">
+                            <button aria-label="subtract-line" class="px-2 hover:bg-primary transition-all duration-300">
                                 <i class="ri-subtract-line"></i>
                             </button>
 
                             <span class="text-sm font-medium">1</span>
 
-                            <button class="px-2 hover:bg-primary transition-all duration-300">
+                            <button aria-label="add-line" class="px-2 hover:bg-primary transition-all duration-300">
                                 <i class="ri-add-line"></i>
                             </button>
 
@@ -125,13 +125,13 @@
                     <div class="flex justify-between mt-auto lg:mt-8">
                         <!-- add -->
                         <div class="bg-gray-100 flex justify-between gap-x-2 w-fit items-center">
-                            <button class="px-2 hover:bg-primary transition-all duration-300">
+                            <button aria-label="subtract-line" class="px-2 hover:bg-primary transition-all duration-300">
                                 <i class="ri-subtract-line"></i>
                             </button>
 
                             <span class="text-sm font-medium">1</span>
 
-                            <button class="px-2 hover:bg-primary transition-all duration-300">
+                            <button aria-label="add-line" class="px-2 hover:bg-primary transition-all duration-300">
                                 <i class="ri-add-line"></i>
                             </button>
 
@@ -152,7 +152,7 @@
         </div>
 
         <a href="checkout.html">
-            <button
+            <button aria-label="checkoutbtn"
                 class="bg-ornge text-xs text-white w-full mt-3 py-2 uppercase hover:bg-rrd transition-all duration-300 cursor-pointer border-0 rounded-lg md:text-sm">Continue
                 to Checkout</button>
         </a>
@@ -169,7 +169,7 @@
             <nav class="pt-5 px-7" id="originalNavbar" aria-label="Primary navigation">
                 <div class="flex items-center justify-between py-3 gap-x-2 bg-brwn rounded-full">
                     <!-- Mobile Menu Button -->
-                    <button id="menuButton"
+                    <button id="menuButton" 
                         class="text-white uppercase hover:text-yllow transition-all text-sm duration-300 lg:hidden ml-5"
                         aria-label="Open menu">
                         <i class="ri-restaurant-2-fill mr-2"></i>Menu
@@ -177,9 +177,9 @@
 
                     <!-- Desktop Navigation Left -->
                     <div class="hidden lg:flex lg:items-center lg:gap-x-6 lg:ml-7" aria-label="Desktop navigation left">
-                        <a href="#home"
+                        <a href="index.html"
                             class="flex items-center text-white uppercase hover:text-yllow transition-all duration-300 text-sm">
-                            <i class="ri-home-3-fill mr-2"></i>Home
+                            <i class="ri-home-3-fill mr-2"></i>Logout
                         </a>
                         <a href="#products"
                             class="flex items-center text-white uppercase hover:text-yllow transition-all duration-300 text-sm">
